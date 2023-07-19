@@ -37,6 +37,7 @@ public class TestBase {
         ));
 
         Configuration.browserCapabilities = capabilities;
+        Configuration.pageLoadStrategy =  "eager";
     }
     @BeforeEach
      void addListener() {
