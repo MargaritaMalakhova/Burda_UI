@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -20,7 +21,7 @@ public class WebTests extends TestBase {
     public static String PRODUCT_NAME_FOR_ADD_TO_CART = "Cotton Hair Wrap 134";
     public static String PRODUCT_NAME_TO_BUY = "Cotton Cosmetics Bag 135";
 
-
+    @Tag("login")
     @Test
     @DisplayName("Positive Login test")
     void positiveLoggin() {
