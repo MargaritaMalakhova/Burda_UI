@@ -12,6 +12,7 @@ public class LoginPage {
 
     SelenideElement cookiesModal = $("header.modal-header"),
                     allowCookiesButton = $("button#btn-cookie-allow"),
+                    choiceCheckbox = $("div.choice"),
                     emailInput = $("input#email"),
                     passwordInput = $("input#pass"),
                     loginButton = $("button.login"),
@@ -24,7 +25,7 @@ public class LoginPage {
     // Actions
     @Step("Open Login page")
     public static LoginPage openLoginPage() {
-        open("/");
+        open("/customer/account/login");
         $(".page-title").shouldBe(visible);
         return new LoginPage();
     }
@@ -37,8 +38,7 @@ public class LoginPage {
     }
     @Step("Enter login and password")
     public ProfilePage successfulLogin(String email, String password) {
-        $("div.choice").should(appear);
-        emailInput.should(Condition.appear);
+        choiceCheckbox.should(appear);
         emailInput.setValue(email);
         passwordInput.setValue(password);
         loginButton.click();
@@ -47,7 +47,7 @@ public class LoginPage {
 
     @Step("Enter login and incorrect password")
     public LoginPage unsuccessfulLogin(String email) {
-        emailInput.should(Condition.appear);
+        choiceCheckbox.should(appear);
         emailInput.setValue(email);
         passwordInput.setValue("password");
         loginButton.click();
@@ -56,7 +56,7 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Enter login and incorrect password")
+    @Step("Check message about unsuccessful login")
     public LoginPage checkMessageUnsuccessfulLogin() {
         errorMessage.shouldHave(text("The account sign-in was incorrect or your account is disabled temporarily. " +
                 "Please wait and try again later."));

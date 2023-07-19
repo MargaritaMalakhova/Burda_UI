@@ -27,9 +27,6 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
 
-        Configuration.baseUrl = "https://www.burdastyle.com/customer/account/login";
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
@@ -38,6 +35,12 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.pageLoadStrategy =  "eager";
+        Configuration.remote = System.getProperty("remote");
+        Configuration.baseUrl = System.getProperty("baseUrl");
+        Configuration.browserSize = System.getProperty("browserSize");
+        String[] browser = System.getProperty("browser").split(":");
+        Configuration.browser = browser[0];
+        Configuration.browserVersion = browser[1];
     }
     @BeforeEach
      void addListener() {
