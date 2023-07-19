@@ -37,6 +37,7 @@ public class LoginPage {
     }
     @Step("Enter login and password")
     public ProfilePage successfulLogin(String email, String password) {
+        $("div.choice").should(appear);
         emailInput.should(Condition.appear);
         emailInput.setValue(email);
         passwordInput.setValue(password);
