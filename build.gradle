@@ -30,6 +30,7 @@ dependencies {
     testImplementation 'com.codeborne:pdf-test:1.8.1'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'io.qameta.allure:allure-selenide:2.19.0'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.7'
 }
 
 tasks.withType(Test) {
@@ -39,6 +40,10 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}
+
+test {
+    useJUnitPlatform()
 }
 
 task login_test(type: Test) {
