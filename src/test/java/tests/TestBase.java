@@ -25,18 +25,17 @@ public class TestBase {
     CartPage cartPage = new CartPage();
     SewingPatternsPage sewingPatternsPage = new SewingPatternsPage();
     ProductPage productPage = new ProductPage();
-    public static BurdaConfig config;
 
     @BeforeAll
     public static void setUP() {
-        config = ConfigFactory.create(BurdaConfig.class, System.getProperties());
+        BurdaConfig config = ConfigFactory.create(BurdaConfig.class, System.getProperties());
         SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browser = config.getBrowserName();
         Configuration.browserVersion = config.getBrowserVersion();
         Configuration.browserSize = config.getBrowserSize();
-//        Configuration.pageLoadTimeout = config.getPageLoadTimeout();
-//        Configuration.timeout = config.getTimeout();
+        Configuration.pageLoadTimeout = config.getPageLoadTimeout();
+        Configuration.timeout = config.getTimeout();
         Configuration.pageLoadStrategy = config.getPageLoadStrategy();
 
         if (config.isRemote()) {
@@ -60,10 +59,6 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-
-        if(config.isRemote()) {
-            Attach.addVideo();
-        }
 
         closeWebDriver();
     }
