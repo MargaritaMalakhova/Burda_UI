@@ -2,8 +2,10 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.BurdaConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,24 +25,30 @@ public class TestBase {
     CartPage cartPage = new CartPage();
     SewingPatternsPage sewingPatternsPage = new SewingPatternsPage();
     ProductPage productPage = new ProductPage();
+    public static BurdaConfig config;
 
     @BeforeAll
-    static void beforeAll() {
+    public static void setUP() {
+        config = ConfigFactory.create(BurdaConfig.class, System.getProperties());
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        Configuration.baseUrl = config.getBaseUrl();
+        Configuration.browser = config.getBrowserName();
+        Configuration.browserVersion = config.getBrowserVersion();
+        Configuration.browserSize = config.getBrowserSize();
+//        Configuration.pageLoadTimeout = config.getPageLoadTimeout();
+//        Configuration.timeout = config.getTimeout();
+        Configuration.pageLoadStrategy = config.getPageLoadStrategy();
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        if (config.isRemote()) {
+            Configuration.remote = config.getRemoteUrl() + "/wd/hub";
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+            Configuration.browserCapabilities = capabilities;
+        }
 
-        Configuration.browserCapabilities = capabilities;
-        Configuration.pageLoadStrategy =  "eager";
-        Configuration.remote = System.getProperty("remote");
-        Configuration.baseUrl = System.getProperty("baseUrl");
-        Configuration.browserSize = System.getProperty("browserSize");
-        String[] browser = System.getProperty("browser").split(":");
-        Configuration.browser = browser[0];
-        Configuration.browserVersion = browser[1];
     }
     @BeforeEach
      void addListener() {
@@ -48,14 +56,17 @@ public class TestBase {
     }
 
     @AfterEach
-    void addAttachments() {
+    public void addAttachmentsAndClose() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
 
-    void closeDriver() {
+        if(config.isRemote()) {
+            Attach.addVideo();
+        }
+
         closeWebDriver();
     }
+
+
 }

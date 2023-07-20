@@ -38,6 +38,7 @@ public class LoginPage {
     }
     @Step("Enter login and password")
     public ProfilePage successfulLogin(String email, String password) {
+
         choiceCheckbox.should(appear);
         emailInput.setValue(email);
         passwordInput.setValue(password);
