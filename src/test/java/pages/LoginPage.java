@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -16,17 +15,16 @@ public class LoginPage {
                     emailInput = $("input#email"),
                     passwordInput = $("input#pass"),
                     loginButton = $("button.login"),
-                    errorMessage = $x("//div[@data-bind='html: message.text']");
-
-//    public LoginPage() {
-//        $(".page-title").shouldBe(visible);
-//    }
+                    errorMessage = $x("//div[@data-bind='html: message.text']"),
+                    userIcon = $("i.custom-icon-user"),
+                    disconnectLink = $x("//a[text()='Disconnect']"),
+                    signOutPageTitleh1 = $("h1.page-title");
 
     // Actions
     @Step("Open Login page")
     public static LoginPage openLoginPage() {
         open("/customer/account/login");
-        $(".page-title").shouldBe(visible);
+        $(".page-title ").shouldBe(visible);
         return new LoginPage();
     }
     @Step("Accept cookies")
@@ -38,29 +36,30 @@ public class LoginPage {
     }
     @Step("Enter login and password")
     public ProfilePage successfulLogin(String email, String password) {
-
         choiceCheckbox.should(appear);
         emailInput.setValue(email);
         passwordInput.setValue(password);
         loginButton.click();
         return new ProfilePage();
     }
-
+    @Step("Log out")
+    public void logOut(String signOutPageTitle) {
+        userIcon.hover();
+        disconnectLink.click();
+        signOutPageTitleh1.should(appear).shouldHave(text(signOutPageTitle));
+    }
     @Step("Enter login and incorrect password")
-    public LoginPage unsuccessfulLogin(String email) {
+    public LoginPage unsuccessfulLogin(String email, String wrongPassword) {
         choiceCheckbox.should(appear);
         emailInput.setValue(email);
-        passwordInput.setValue("password");
+        passwordInput.setValue(wrongPassword);
         loginButton.click();
-        errorMessage.shouldHave(text("The account sign-in was incorrect or your account is disabled temporarily. " +
-                        "Please wait and try again later."));
         return this;
     }
 
     @Step("Check message about unsuccessful login")
-    public LoginPage checkMessageUnsuccessfulLogin() {
-        errorMessage.shouldHave(text("The account sign-in was incorrect or your account is disabled temporarily. " +
-                "Please wait and try again later."));
+    public LoginPage checkMessageUnsuccessfulLogin(String messageUnsuccessfulLogin) {
+        errorMessage.shouldHave(text(messageUnsuccessfulLogin));
         return this;
     }
 }

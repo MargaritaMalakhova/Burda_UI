@@ -3,7 +3,6 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.BurdaConfig;
-import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -11,20 +10,20 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.*;
-import utils.RandomUtils;
 
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static helpers.Attach.*;
 
 public class TestBase {
     LoginPage loginPage = new LoginPage();
     ProfilePage profilePage = new ProfilePage();
     DownloadableProductsPage downloadableProductsPage = new DownloadableProductsPage();
-    RandomUtils randomUtils = new RandomUtils();
     CartPage cartPage = new CartPage();
     SewingPatternsPage sewingPatternsPage = new SewingPatternsPage();
     ProductPage productPage = new ProductPage();
+    CheckOutPage checkOutPage = new CheckOutPage();
 
     @BeforeAll
     public static void setUP() {
@@ -56,9 +55,10 @@ public class TestBase {
 
     @AfterEach
     public void addAttachmentsAndClose() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
+        screenshotAs("Last screenshot");
+        pageSource();
+        browserConsoleLogs();
+        addVideo();
 
         closeWebDriver();
     }

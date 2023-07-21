@@ -6,13 +6,13 @@ import java.util.Locale;
 
 
 public class RandomUtils {
-    Faker faker = new Faker(new Locale("en-GB"));
-    public String createRandomFirstName() {
+    static Faker faker = new Faker(new Locale("en-GB"));
+    public static String createRandomFirstName() {
 
         return faker.name().firstName();
     }
 
-    public String createRandomLastName() {
+    public static String createRandomLastName() {
 
         return faker.name().lastName();
     }

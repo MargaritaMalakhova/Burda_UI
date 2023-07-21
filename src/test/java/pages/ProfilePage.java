@@ -2,7 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.w3c.dom.Text;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -12,13 +12,13 @@ public class ProfilePage {
                     userFirstNameInput = $("input#firstname"),
                     userLastNameInput = $("input#lastname"),
                     saveButton = $("button.save");
-
+    @Step("Check User Name and email")
     public ProfilePage verifyUserInformation(String userProfileName) {
         userProfileInformationField.shouldHave(Condition.text(userProfileName));
 
         return this;
     }
-
+    @Step("Change User's First Name and Last Name")
     public ProfilePage changeUserName(String randomUserFirstName, String randomUserLastName) {
         profileEditIcon.click();
         userFirstNameInput.clear();
@@ -29,7 +29,7 @@ public class ProfilePage {
 
         return this;
     }
-
+    @Step("Change back User's First Name and Last Name")
     public ProfilePage changeBackUserName(String userFirstName, String userLastName) {
         profileEditIcon.click();
         userFirstNameInput.clear();

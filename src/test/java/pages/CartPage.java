@@ -2,26 +2,26 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 public class CartPage {
 
     SelenideElement deleteItemInCartButton = $("a.action-delete"),
-                    cartContainer = $x("div.cart-container"),
+                    cartContainer = $("form#form-validate"),
                     checkoutButton = $("button.checkout");
 
-    public void deleteItemInCart() {
-        deleteItemInCartButton.click();
-    }
-
-    public CartPage checkProductInCart(String productItemNameToBuy) {
-        cartContainer.shouldHave(Condition.text(productItemNameToBuy));
-
+    @Step("Check added Product in Cart")
+    public CartPage checkProductInCart(String productForAddingToCart) {
+        cartContainer.shouldHave(Condition.text(productForAddingToCart));
         return this;
     }
-
+    @Step("Delete Product in Cart")
+    public void removeProductInCart() {
+        deleteItemInCartButton.click();
+    }
+    @Step("Click on Check Out")
     public CartPage clickOnCheckout() {
         checkoutButton.click();
 
