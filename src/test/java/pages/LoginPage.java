@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -36,6 +37,7 @@ public class LoginPage {
     }
     @Step("Enter login and password")
     public ProfilePage successfulLogin(String email, String password) {
+        Selenide.sleep(5000);
         choiceCheckbox.should(appear);
         emailInput.setValue(email);
         passwordInput.setValue(password);
