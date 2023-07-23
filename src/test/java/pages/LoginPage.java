@@ -52,6 +52,7 @@ public class LoginPage {
     }
     @Step("Enter login and incorrect password")
     public LoginPage unsuccessfulLogin(String email, String wrongPassword) {
+        Selenide.sleep(5000);
         choiceCheckbox.should(appear);
         emailInput.setValue(email);
         passwordInput.setValue(wrongPassword);
