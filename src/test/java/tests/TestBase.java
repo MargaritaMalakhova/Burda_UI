@@ -24,6 +24,7 @@ public class TestBase {
     SewingPatternsPage sewingPatternsPage = new SewingPatternsPage();
     ProductPage productPage = new ProductPage();
     CheckOutPage checkOutPage = new CheckOutPage();
+    WishListPage wishListPage = new WishListPage();
 
     @BeforeAll
     public static void setUP() {
@@ -48,8 +49,9 @@ public class TestBase {
         }
 
     }
+
     @BeforeEach
-     void addListener() {
+    void addListener() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 

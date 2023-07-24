@@ -1,13 +1,17 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
 import static data.DataBase.*;
+import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static pages.LoginPage.openLoginPage;
 
+@Story("User changes profile")
 public class UserProfileTest extends TestBase {
 
     @BeforeEach
@@ -19,13 +23,13 @@ public class UserProfileTest extends TestBase {
 
     @Test
     @DisplayName("Change user profile test")
+    @Owner("m.malakhova")
+    @Severity(BLOCKER)
     void changeUserProfile() {
-        open("https://www.burdastyle.com/customer/account/login");
-
         profilePage
                 .verifyUserInformation(userProfileInformation)
                 .changeUserName(randomUserFirstName, randomUserLastName)
-                .verifyUserInformation(randomUserFirstName + " " + randomUserLastName+ "\n" + email)
+                .verifyUserInformation(randomUserFirstName + " " + randomUserLastName + "\n" + email)
                 .changeBackUserName(userFirstName, userLastName);
     }
 }

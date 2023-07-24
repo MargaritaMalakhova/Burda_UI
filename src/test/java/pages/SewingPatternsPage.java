@@ -5,21 +5,25 @@ import com.codeborne.selenide.SelenideElement;
 import data.DataBase;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class SewingPatternsPage {
-    SelenideElement sewingPatternsLink = $x("//a[@title='Sewing patterns']"),
-            freeSewingPatternsLink = $x("//a[@title='Free sewing patterns']"),
-            productNameForAddToCartLink = $x(("//a[contains(text(), '"+ DataBase.PRODUCT_NAME_FOR_ADD_TO_CART +"')]"));
+    private final SelenideElement sewingPatternsLink = $x("//a[@title='Sewing patterns']");
+
     @Step("Open Page with Free Patterns")
-    public SewingPatternsPage openFreeSewingPatternsPage() {
+    public SewingPatternsPage openSewingPatternsPage(String nameOfPatternsPage) {
         sewingPatternsLink.hover();
-        freeSewingPatternsLink.should(Condition.appear).click();
+        $(byText(nameOfPatternsPage)).should(appear).click();
         return this;
     }
+
     @Step("Open Product Page")
-    public SewingPatternsPage openProductPage() {
-        productNameForAddToCartLink.click();
+    public SewingPatternsPage openProductPage(String nameOfProduct) {
+        $(byText(nameOfProduct)).should(appear).click();
 
         return this;
     }

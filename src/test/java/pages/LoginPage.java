@@ -10,16 +10,16 @@ import static com.codeborne.selenide.Selenide.*;
 public class LoginPage {
     // SelenideElements
 
-    SelenideElement cookiesModal = $("header.modal-header"),
-                    allowCookiesButton = $("button#btn-cookie-allow"),
-                    choiceCheckbox = $("div.choice"),
-                    emailInput = $("input#email"),
-                    passwordInput = $("input#pass"),
-                    loginButton = $("button.login"),
-                    errorMessage = $x("//div[@data-bind='html: message.text']"),
-                    userIcon = $("i.custom-icon-user"),
-                    disconnectLink = $x("//a[text()='Disconnect']"),
-                    signOutPageTitleh1 = $("h1.page-title");
+    private final SelenideElement cookiesModal = $("header.modal-header"),
+            allowCookiesButton = $("button#btn-cookie-allow"),
+            choiceCheckbox = $("div.choice"),
+            emailInput = $("input#email"),
+            passwordInput = $("input#pass"),
+            loginButton = $("button.login"),
+            errorMessage = $x("//div[@data-bind='html: message.text']"),
+            userIcon = $("i.custom-icon-user"),
+            disconnectLink = $x("//a[text()='Disconnect']"),
+            signOutPageTitleh1 = $("h1.page-title");
 
     // Actions
     @Step("Open Login page")
@@ -28,6 +28,7 @@ public class LoginPage {
         $(".page-title ").shouldBe(visible);
         return new LoginPage();
     }
+
     @Step("Accept cookies")
     public LoginPage acceptCookies() {
         cookiesModal.should(appear);
@@ -35,6 +36,7 @@ public class LoginPage {
 
         return this;
     }
+
     @Step("Enter login and password")
     public ProfilePage successfulLogin(String email, String password) {
         Selenide.sleep(5000);
@@ -44,12 +46,14 @@ public class LoginPage {
         loginButton.click();
         return new ProfilePage();
     }
+
     @Step("Log out")
     public void logOut(String signOutPageTitle) {
         userIcon.hover();
         disconnectLink.click();
         signOutPageTitleh1.should(appear).shouldHave(text(signOutPageTitle));
     }
+
     @Step("Enter login and incorrect password")
     public LoginPage unsuccessfulLogin(String email, String wrongPassword) {
         Selenide.sleep(5000);

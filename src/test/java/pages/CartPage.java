@@ -8,19 +8,21 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CartPage {
 
-    SelenideElement deleteItemInCartButton = $("a.action-delete"),
-                    cartContainer = $("form#form-validate"),
-                    checkoutButton = $("button.checkout");
+    private final SelenideElement deleteItemInCartButton = $("a.action-delete"),
+            cartContainer = $("form#form-validate"),
+            checkoutButton = $("button.checkout");
 
     @Step("Check added Product in Cart")
     public CartPage checkProductInCart(String productForAddingToCart) {
         cartContainer.shouldHave(Condition.text(productForAddingToCart));
         return this;
     }
+
     @Step("Delete Product in Cart")
     public void removeProductInCart() {
         deleteItemInCartButton.click();
     }
+
     @Step("Click on Check Out")
     public CartPage clickOnCheckout() {
         checkoutButton.click();

@@ -8,14 +8,15 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class CheckOutPage {
 
-    SelenideElement agreementCheckbox = $x("//*[@id=\"agreement_free_5\"]"),
-                    PlaceOrderButton = $x("//button[@title='Place Order']");
+    private final SelenideElement agreementCheckbox = $x("//*[@id=\"agreement_free_5\"]"),
+            PlaceOrderButton = $x("//button[@title='Place Order']");
 
     @Step("Choose agreement")
     public CheckOutPage chooseAgreement() {
         agreementCheckbox.click();
         return this;
     }
+
     @Step("Make Place Order")
     public void clickOnPlaceOrder() {
 
