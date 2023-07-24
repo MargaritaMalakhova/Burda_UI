@@ -16,6 +16,7 @@ public class ProductPage {
             toWishListIconNav = $("i.custom-icon-favorite"),
             toWishListLink = $x("//a[text()='To my wishlist']");
 
+
     @Step("Add Product to Cart")
     public ProductPage addProductToCart() {
         addToCartButton.should(Condition.appear).click();

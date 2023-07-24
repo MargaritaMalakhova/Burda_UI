@@ -34,9 +34,9 @@ public class CartTest extends TestBase {
     @Owner("m.malakhova")
     @Severity(BLOCKER)
     void buyPatternTest() {
-        sewingPatternsPage.openSewingPatternsPage(FreePatternsPage).openProductPage(PRODUCT_NAME_FOR_BUYING);
+        sewingPatternsPage.openSewingPatternsPage(FreePatternsPage).openProductPage(PRODUCT_NAME_FOR_ADD_TO_CART);
         productPage.addProductToCart().moveToCart();
-        cartPage.checkProductInCart(PRODUCT_NAME_FOR_BUYING).clickOnCheckout();
+        cartPage.checkProductInCart(PRODUCT_NAME_FOR_ADD_TO_CART).clickOnCheckout();
         checkOutPage.chooseAgreement().clickOnPlaceOrder();
     }
 }
