@@ -98,8 +98,8 @@ gradle clean test
 <img title="Telegram_notifications" src="readme_interactive_elements/screens/Telegram.png">
 </p>
 
-##  Web приложение Saucedemo
+##  Web приложение BurdaStyle
 
-###  Покрытый функционал web приложения Saucedemo
+###  Покрытый функционал web приложения BurdaStyle
 
 > Разработаны автотесты на <code>UI</code>.
