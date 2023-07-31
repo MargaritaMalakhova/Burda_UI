@@ -62,7 +62,7 @@ gradle clean test
 -Dtimeout=
 ```
 
-## <img width="4%" title="Jenkins" src="readme_interactive_elements/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
+## <img width="4%" title="Jenkins" src="readme_interactive_elements/logo/Jenkins.svg"> удаленный запуск тестов в Jenkins
 
 > Для запуска тестов используется параметризированная сборка
 
