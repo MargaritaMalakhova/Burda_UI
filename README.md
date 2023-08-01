@@ -113,7 +113,7 @@ gradle clean test
 - [x] Оформление и оплата заказа
 - [x] Скачивание PDF-файла заказа
 
-## Технологический стек
+## Технологический стек UI
 
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="readme_interactive_elements/logo/Intelij_IDEA.svg">
