@@ -6,7 +6,7 @@
 >
 > ➠ [Запуск тестов из терминала](#запуск-тестов-из-терминала)
 >
-> ➠ [Запуск тестов в Jenkins](#удаленный-запуск-тестов-в-jenkins)
+> ➠ [Запуск тестов в Jenkins](#-удаленный-запуск-тестов-в-Jenkins)
 >
 > ➠ [Отчет о результатах тестирования в Allure Report](#-главная-страница-allure-отчета)
 >
@@ -146,5 +146,5 @@ gradle clean test
 > К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже.
 
 <p align="center">
-<img title="Selenoid_gif" src="readme_interactive_elements/gifs/Selenoid.gif">
+<img title="Selenoid_gif" src="readme_interactive_elements/Selenoid.gif">
 </p>
