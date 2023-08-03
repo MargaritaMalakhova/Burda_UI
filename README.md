@@ -117,7 +117,7 @@ gradle clean test
 
 ## <img width="4%" title="Allure_Report" src="readme_interactive_elements/logo/Allure_Report.svg"> Главная страница allure отчета
 
-> Allure report по ссылке: <code></code>
+> Ссылка на Allure report: <code>https://jenkins.autotests.cloud/job/19-marg0shek-final_project_ui/28/allure/</code>
 
 <p align="center">
 <img title="Allure_main" src="readme_interactive_elements/screens/AllureReportMainPage.png">
@@ -130,6 +130,8 @@ gradle clean test
 </p>
 
 ### <img width="4%" title="Allure_testops" src="readme_interactive_elements/logo/Allure_Test_Ops.svg"> Тест кейсы в Allure Test Ops
+
+> Ссылка на TestOps: <code>https://allure.autotests.cloud/project/3596/test-cases?treeId=0</code>
 
 <p align="center">
 <img title="Allure_testops" src="readme_interactive_elements/screens/TestOps.png">
