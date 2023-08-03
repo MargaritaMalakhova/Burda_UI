@@ -108,7 +108,7 @@ gradle clean test
 ## <img width="4%" title="Jenkins" src="readme_interactive_elements/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
 
-> Для запуска тестов используется параметризированная сборка
+> Для запуска тестов используется параметризированная сборка. Ссылка на job: <code>https://jenkins.autotests.cloud/job/19-marg0shek-final_project_ui/</code>
 
 <p align="center">
 <img title="Jenkins" src="readme_interactive_elements/screens/Jenkins.png">
