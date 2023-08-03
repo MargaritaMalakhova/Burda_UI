@@ -15,6 +15,8 @@
 > ➠ [Tests as documentation в Allure Test Ops](#-тест-кейсы-в-allure-test-ops)
 >
 > ➠ [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
+> >
+> ➠ [Пример запуска теста в Selenoid](#-пример-запуска-теста-в-selenoid)
 
 ##  Web приложение BurdaStyle
 
