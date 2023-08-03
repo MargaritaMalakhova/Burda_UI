@@ -24,8 +24,9 @@
 
 > Разработаны автотесты на <code>UI</code>.
 
-- [x] Авторизация в веб приложении
-- [x] Проверка сортировки товаров
+- [x] Авторизация в веб приложении (позитивный тест)
+- [x] Авторизация в веб приложении (негативный тест)
+- [x] Изменение профиля пользователя
 - [x] Добавление товаров в Wish List
 - [x] Добавление товаров в корзину
 - [x] Оформление и оплата заказа
@@ -107,14 +108,16 @@ gradle clean test
 
 ## <img width="4%" title="Jenkins" src="readme_interactive_elements/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
-
-> Для запуска тестов используется параметризированная сборка. Ссылка на job: <code>https://jenkins.autotests.cloud/job/19-marg0shek-final_project_ui/</code>
+> Для запуска тестов используется параметризированная сборка.
+> Ссылка на Jenkins Job: <code>https://jenkins.autotests.cloud/job/19-marg0shek-final_project_ui/</code>
 
 <p align="center">
 <img title="Jenkins" src="readme_interactive_elements/screens/Jenkins.png">
 </p>
 
 ## <img width="4%" title="Allure_Report" src="readme_interactive_elements/logo/Allure_Report.svg"> Главная страница allure отчета
+
+> Allure report по ссылке: <code></code>
 
 <p align="center">
 <img title="Allure_main" src="readme_interactive_elements/screens/AllureReportMainPage.png">
