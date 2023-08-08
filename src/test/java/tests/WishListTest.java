@@ -16,7 +16,7 @@ public class WishListTest extends TestBase {
     @BeforeEach
     public void login() {
         openLoginPage().acceptCookies().successfulLogin(email, password);
-        }
+    }
 
     @Test
     @DisplayName("Add pattern to wish list test")
@@ -26,6 +26,6 @@ public class WishListTest extends TestBase {
         sewingPatternsPage.openSewingPatternsPage(SkirtsPatternsPage).openProductPage(PRODUCT_NAME_FOR_ADD_TO_WISH_LIST);
         productPage.addProductToWishList().moveToWishList();
         wishListPage.checkProductInWithList(PRODUCT_NAME_FOR_ADD_TO_WISH_LIST)
-        .removeProductInWishList();
+                .removeProductInWishList();
     }
 }
