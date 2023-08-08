@@ -12,7 +12,7 @@
 >
 > ➠ [Отчет о результатах тестирования в Allure Report](#-главная-страница-allure-отчета)
 >
-> ➠ [Tests as documentation в Allure Test Ops](#-тест-кейсы-в-allure-test-ops)
+> ➠ [Тест-кейсы в Allure Test Ops](#-тест-кейсы-в-allure-test-ops)
 >
 > ➠ [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 > >
@@ -20,7 +20,7 @@
 
 ##  Web приложение BurdaStyle
 
-###  Покрытый функционал web приложения BurdaStyle
+###  Функциональные тесты для web приложения BurdaStyle
 
 > Разработаны автотесты на <code>UI</code>.
 
@@ -56,7 +56,7 @@
 >
 > Для автоматизированной сборки проекта используется <code>Gradle</code>.
 >
-> В качестве библиотеки для модульного тестирования используется <code>JUnit 5</code>.
+> В качестве библиотеки для запуска тестов используется <code>JUnit 5</code>.
 >
 > <code>Jenkins</code> выполняет запуск тестов.
 > 
@@ -129,7 +129,7 @@ gradle clean test
 <img title="Allure_suits" src="readme_interactive_elements/screens/AllureReportSuites.png">
 </p>
 
-### <img width="4%" title="Allure_testops" src="readme_interactive_elements/logo/Allure_Test_Ops.svg"> Тест кейсы в Allure Test Ops
+### <img width="4%" title="Allure_testops" src="readme_interactive_elements/logo/Allure_Test_Ops.svg"> Тест-кейсы в Allure Test Ops
 
 > Ссылка на TestOps: <code>https://allure.autotests.cloud/project/3596/test-cases?treeId=0</code>
 
