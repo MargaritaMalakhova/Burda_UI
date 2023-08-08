@@ -12,18 +12,21 @@
 >
 > ➠ [Отчет о результатах тестирования в Allure Report](#-главная-страница-allure-отчета)
 >
-> ➠ [Tests as documentation в Allure Test Ops](#-тест-кейсы-в-allure-test-ops)
+> ➠ [Тест-кейсы в Allure Test Ops](#-тест-кейсы-в-allure-test-ops)
 >
 > ➠ [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
+> >
+> ➠ [Пример запуска теста в Selenoid](#-пример-запуска-теста-в-selenoid)
 
 ##  Web приложение BurdaStyle
 
-###  Покрытый функционал web приложения BurdaStyle
+###  Функциональные тесты для web приложения BurdaStyle
 
 > Разработаны автотесты на <code>UI</code>.
 
-- [x] Авторизация в веб приложении
-- [x] Проверка сортировки товаров
+- [x] Авторизация в веб приложении (позитивный тест)
+- [x] Авторизация в веб приложении (негативный тест)
+- [x] Изменение профиля пользователя
 - [x] Добавление товаров в Wish List
 - [x] Добавление товаров в корзину
 - [x] Оформление и оплата заказа
@@ -53,7 +56,7 @@
 >
 > Для автоматизированной сборки проекта используется <code>Gradle</code>.
 >
-> В качестве библиотеки для модульного тестирования используется <code>JUnit 5</code>.
+> В качестве библиотеки для запуска тестов используется <code>JUnit 5</code>.
 >
 > <code>Jenkins</code> выполняет запуск тестов.
 > 
@@ -105,13 +108,16 @@ gradle clean test
 
 ## <img width="4%" title="Jenkins" src="readme_interactive_elements/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
-> Для запуска тестов используется параметризированная сборка
+> Для запуска тестов используется параметризированная сборка.
+> Ссылка на Jenkins Job: <code>https://jenkins.autotests.cloud/job/19-marg0shek-final_project_ui/</code>
 
 <p align="center">
 <img title="Jenkins" src="readme_interactive_elements/screens/Jenkins.png">
 </p>
 
 ## <img width="4%" title="Allure_Report" src="readme_interactive_elements/logo/Allure_Report.svg"> Главная страница allure отчета
+
+> Ссылка на Allure report: <code>https://jenkins.autotests.cloud/job/19-marg0shek-final_project_ui/28/allure/</code>
 
 <p align="center">
 <img title="Allure_main" src="readme_interactive_elements/screens/AllureReportMainPage.png">
@@ -123,7 +129,9 @@ gradle clean test
 <img title="Allure_suits" src="readme_interactive_elements/screens/AllureReportSuites.png">
 </p>
 
-### <img width="4%" title="Allure_testops" src="readme_interactive_elements/logo/Allure_Test_Ops.svg"> Тест кейсы в Allure Test Ops
+### <img width="4%" title="Allure_testops" src="readme_interactive_elements/logo/Allure_Test_Ops.svg"> Тест-кейсы в Allure Test Ops
+
+> Ссылка на TestOps: <code>https://allure.autotests.cloud/project/3596/test-cases?treeId=0</code>
 
 <p align="center">
 <img title="Allure_testops" src="readme_interactive_elements/screens/TestOps.png">
