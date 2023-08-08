@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static data.DataBase.*;
+import static data.TestData.*;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static pages.LoginPage.openLoginPage;
 

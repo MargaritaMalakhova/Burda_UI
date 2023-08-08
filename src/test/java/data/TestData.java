@@ -1,8 +1,8 @@
 package data;
 
-import static utils.RandomUtils.*;
+import static helpers.RandomUtils.*;
 
-public class DataBase {
+public class TestData {
     public static String email = "draizermargot@yandex.ru";
     public static String password = "Pdtpljxrf12345";
     public static String wrongPassword = "password";

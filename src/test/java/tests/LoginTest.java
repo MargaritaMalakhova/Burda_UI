@@ -6,7 +6,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static data.DataBase.*;
+import static data.TestData.*;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static pages.LoginPage.openLoginPage;
 
@@ -19,8 +19,11 @@ public class LoginTest extends TestBase {
     @Severity(BLOCKER)
     void positiveLoggin() {
 
-        openLoginPage().acceptCookies().successfulLogin(email, password);
-        profilePage.verifyUserInformation(userProfileInformation);
+        openLoginPage()
+                .acceptCookies()
+                .successfulLogin(email, password);
+        profilePage
+                .verifyUserInformation(userProfileInformation);
         loginPage.logOut(signOutPageTitle);
     }
 
@@ -30,6 +33,9 @@ public class LoginTest extends TestBase {
     @Severity(BLOCKER)
     void negativeLoggin() {
 
-        openLoginPage().acceptCookies().unsuccessfulLogin(email, wrongPassword).checkMessageUnsuccessfulLogin(messageUnsuccessfulLogin);
+        openLoginPage()
+                .acceptCookies()
+                .successfulLogin(email, wrongPassword)
+                .checkMessageUnsuccessfulLogin(messageUnsuccessfulLogin);
     }
 }
