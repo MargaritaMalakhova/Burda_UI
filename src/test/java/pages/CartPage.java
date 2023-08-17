@@ -5,12 +5,19 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class CartPage {
 
     private final SelenideElement deleteItemInCartButton = $("a.action-delete"),
             cartContainer = $("form#form-validate"),
             checkoutButton = $("button.checkout");
+
+    @Step("Open Cart")
+    public CartPage openCart() {
+        open("/checkout/cart/");
+        return this;
+    }
 
     @Step("Check added Product in Cart")
     public CartPage checkProductInCart(String productForAddingToCart) {
@@ -20,6 +27,7 @@ public class CartPage {
 
     @Step("Delete Product in Cart")
     public void removeProductInCart() {
+
         deleteItemInCartButton.click();
     }
 

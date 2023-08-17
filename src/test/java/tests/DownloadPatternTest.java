@@ -6,19 +6,20 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pages.DownloadableProductsPage;
 
-import static data.TestData.*;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static pages.LoginPage.openLoginPage;
 
 @Story("User downloads pattern file")
 public class DownloadPatternTest extends TestBase {
-
+    DownloadableProductsPage downloadableProductsPage = new DownloadableProductsPage();
+    String textForCheckInPDF = "instructions";
     @BeforeEach
     public void login() {
         openLoginPage()
                 .acceptCookies()
-                .successfulLogin(email, password);
+                .login(credsConfig.getEmail(), credsConfig.getPassword());
     }
 
     @Test

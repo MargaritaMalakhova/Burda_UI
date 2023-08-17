@@ -5,23 +5,29 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-public class ProfilePage {
+public class MyAccountPage {
     private final SelenideElement userProfileInformationField = $("div.box-information p"),
             profileEditIcon = $("div.box-actions > a:nth-child(1)"),
             userFirstNameInput = $("input#firstname"),
             userLastNameInput = $("input#lastname"),
             saveButton = $("button.save");
 
+    @Step("Open My Account Page")
+    public void openMyAccountPage() {
+        open("/customer/account/");
+    }
+
     @Step("Check User Name and email")
-    public ProfilePage verifyUserInformation(String userProfileName) {
+    public MyAccountPage verifyUserInformation(String userProfileName) {
         userProfileInformationField.shouldHave(Condition.text(userProfileName));
 
         return this;
     }
 
     @Step("Change User's First Name and Last Name")
-    public ProfilePage changeUserName(String randomUserFirstName, String randomUserLastName) {
+    public MyAccountPage changeUserName(String randomUserFirstName, String randomUserLastName) {
         profileEditIcon.click();
         userFirstNameInput.clear();
         userFirstNameInput.setValue(randomUserFirstName);
@@ -33,7 +39,7 @@ public class ProfilePage {
     }
 
     @Step("Change back User's First Name and Last Name")
-    public ProfilePage changeBackUserName(String userFirstName, String userLastName) {
+    public MyAccountPage changeBackUserName(String userFirstName, String userLastName) {
         profileEditIcon.click();
         userFirstNameInput.clear();
         userFirstNameInput.setValue(userFirstName);

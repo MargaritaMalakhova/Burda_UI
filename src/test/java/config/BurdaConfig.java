@@ -3,7 +3,9 @@ package config;
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.Config.Sources;
 
-@Sources({"system:properties", "classpath:test.properties"})
+@Sources({
+        "system:properties", "classpath:test.properties"
+})
 public interface BurdaConfig extends Config {
 
     @Key("browserName")

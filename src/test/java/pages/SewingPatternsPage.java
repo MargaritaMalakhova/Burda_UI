@@ -1,27 +1,25 @@
 package pages;
 
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class SewingPatternsPage {
-    private final SelenideElement sewingPatternsLink = $x("//a[@title='Sewing patterns']");
 
     @Step("Open Page with Free Patterns")
-    public SewingPatternsPage openSewingPatternsPage(String nameOfPatternsPage) {
-        sewingPatternsLink.hover();
-        $(byText(nameOfPatternsPage)).should(appear).click();
-        return this;
+    public void openFreePatternsPage() {
+        open("/sewing-patterns/free-sewing-patterns.html");
+    }
+
+    @Step("Open Page with Skirts Patterns")
+    public void openSkirtsPatternsPage() {
+        open("/sewing-patterns/women/skirts.html");
     }
 
     @Step("Open Product Page")
-    public SewingPatternsPage openProductPage(String nameOfProduct) {
+    public void openProductPage(String nameOfProduct) {
         $(byText(nameOfProduct)).should(appear).click();
-
-        return this;
     }
 }

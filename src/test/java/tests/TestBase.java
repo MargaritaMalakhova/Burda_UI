@@ -3,13 +3,13 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.BurdaConfig;
+import config.CredentialsConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.*;
 
 import java.util.Map;
 
@@ -17,17 +17,10 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static helpers.Attach.*;
 
 public class TestBase {
-    LoginPage loginPage = new LoginPage();
-    ProfilePage profilePage = new ProfilePage();
-    DownloadableProductsPage downloadableProductsPage = new DownloadableProductsPage();
-    CartPage cartPage = new CartPage();
-    SewingPatternsPage sewingPatternsPage = new SewingPatternsPage();
-    ProductPage productPage = new ProductPage();
-    CheckOutPage checkOutPage = new CheckOutPage();
-    WishListPage wishListPage = new WishListPage();
+    CredentialsConfig credsConfig = ConfigFactory.create(CredentialsConfig.class, System.getProperties());
 
     @BeforeAll
-    public static void setUP() {
+    public static void setUp() {
         BurdaConfig config = ConfigFactory.create(BurdaConfig.class, System.getProperties());
         SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.baseUrl = config.getBaseUrl();
@@ -52,6 +45,7 @@ public class TestBase {
 
     @BeforeEach
     void addListener() {
+
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
