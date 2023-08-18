@@ -8,7 +8,7 @@
 > 
 > ➠ [Запуск тестов из терминала](#запуск-тестов-из-терминала)
 >
-> ➠ [Запуск тестов в Jenkins](#-удаленный-запуск-тестов-в-Jenkins)
+> ➠ [Запуск тестов в Jenkins](#запуск-тестов-в-Jenkins)
 >
 > ➠ [Отчет о результатах тестирования в Allure Report](#-главная-страница-allure-отчета)
 >
@@ -106,7 +106,7 @@ gradle clean test
 -Dtimeout=
 ```
 
-## <img width="4%" title="Jenkins" src="readme_interactive_elements/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
+## <img width="4%" title="Jenkins" src="readme_interactive_elements/logo/Jenkins.svg"> Запуск тестов в Jenkins
 
 > Для запуска тестов используется параметризированная сборка.
 > Ссылка на Jenkins Job: <code>https://jenkins.autotests.cloud/job/19-marg0shek-final_project_ui/</code>
